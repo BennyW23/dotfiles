@@ -10,21 +10,11 @@ tac "$HISTFILE" | awk '!x[$0]++' > /tmp/tmpfile  &&
                 tac /tmp/tmpfile > "$HISTFILE"
 rm /tmp/tmpfile
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$JAVA_HOME/jre/bin:$PATH
-
-# activate aliases
-if [ -e $HOME/.bash_aliases ]; then
-    source $HOME/.bash_aliases
+# execute common shell config actions
+if [ -e $HOME/.common_shell_config ]; then
+    source $HOME/.common_shell_config
 fi
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
-
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-yes "" | head -n $LINES

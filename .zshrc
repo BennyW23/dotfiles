@@ -1,6 +1,10 @@
-if [ -e $HOME/.bash_aliases ]; then
-    source $HOME/.bash_aliases
+# execute common shell config actions
+if [ -e $HOME/.common_shell_config ]; then
+    source $HOME/.common_shell_config
 fi
+
+# Don't update on every brew download
+export HOMEBREW_AUTO_UPDATE_SECS=3600
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -69,16 +73,12 @@ HIST_STAMPS="mm/dd/yyyy"
 
 
 
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    clipboard
-    encode64
     sublime
     safe-paste
     web-search
@@ -118,3 +118,13 @@ bindkey '^[[B' history-substring-search-down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# remove machine name from prompt
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+# only write successful commands to history
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+export PATH="/usr/local/opt/sqlite/bin:$PATH"

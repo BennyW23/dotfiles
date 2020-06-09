@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+    email = 12177862+BennyW23@users.noreply.github.com
+    name = Benny Wong
+[includeIf "gitdir/i:/Users/bennywong/fusemail/"]
+    path = fusemail.gitconfig
+[core]
+    autocrlf = input
+[alias]
+    co = checkout
+    d = diff
+    ec = config --global -e
+    s = status
+    undo = reset HEAD~1 --mixed
+    gud = status

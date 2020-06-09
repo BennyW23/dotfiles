@@ -1,7 +1,9 @@
 alias ll='ls -alh'
 alias lt='du -sh * | sort -h'
 alias count='find . -type f | wc -l'
-alias cg='cd `git rev-parse --show-toplevel`'
+alias cg='cd "`git rev-parse --show-toplevel`"'
+alias ts="node -e 'console.log(Date.now())'"
+alias g='git'
 
 function cl() {
     DIR="$*";
