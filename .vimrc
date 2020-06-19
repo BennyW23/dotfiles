@@ -32,6 +32,8 @@ set relativenumber
 set laststatus=2
 set showcmd
 
+" Always show the tab line at the top
+set showtabline=2
 " The backspace key has slightly unintuitive behavior by default. For example,
 " by default, you can't backspace before the insertion point set with 'i'.
 " This configuration makes backspace behave more reasonably, in that you can

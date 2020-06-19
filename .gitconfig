@@ -14,3 +14,4 @@
     s = status
     undo = reset HEAD~1 --mixed
     gud = status
+    tree = log --oneline --decorate --all --graph
