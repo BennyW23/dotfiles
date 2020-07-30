@@ -30,6 +30,7 @@ set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
+set ruler
 set showcmd
 
 " Always show the tab line at the top
@@ -46,10 +47,6 @@ set expandtab
 set softtabstop=4
 set autoindent
 set fileformat=unix
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
 
 " By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
 " shown in any window) that has unsaved changes. This is to prevent you from "
@@ -121,24 +118,3 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 autocmd FileType php,python autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-
-" Point YCM to the Pipenv created virtualenv, if possible
-" At first, get the output of 'pipenv --venv' command.
-let pipenv_venv_path = system('pipenv --venv')
-" The above system() call produces a non zero exit code whenever
-" a proper virtual environment has not been found.
-" So, second, we only point YCM to the virtual environment when
-" the call to 'pipenv --venv' was successful.
-" Remember, that 'pipenv --venv' only points to the root directory
-" of the virtual environment, so we have to append a full path to
-" the python executable.
-if shell_error == 0
-  let venv_path = substitute(pipenv_venv_path, '\n', '', '')
-  let g:ycm_python_binary_path = venv_path . '/bin/python'
-else
-  let g:ycm_python_binary_path = 'python'
-endif
-
-" You Complete Me bindings
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
