@@ -10,7 +10,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=3600
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/bennywong/Library/Application Support/.oh-my-zsh"
+export ZSH="/Users/bennywong/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
