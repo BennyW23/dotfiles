@@ -1,6 +1,6 @@
 # execute common shell config actions
-if [ -e $HOME/.common_shell_config ]; then
-    source $HOME/.common_shell_config
+if [ -e $HOME/.common_shell_config.sh ]; then
+    source $HOME/.common_shell_config.sh
 fi
 
 # Don't update on every brew download
@@ -142,3 +142,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Add aliases
+if [ -e $HOME/.aliases ]; then
+    source $HOME/.aliases
+fi
