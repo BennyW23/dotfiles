@@ -79,7 +79,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    sublime
     safe-paste
     web-search
     zsh-autosuggestions
@@ -127,4 +126,19 @@ prompt_context() {
 }
 # only write successful commands to history
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/bennywong/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/bennywong/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/bennywong/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/bennywong/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

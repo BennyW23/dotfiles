@@ -11,7 +11,13 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
   alias npm='unalias nvm node npm && . "$NVM_DIR"/nvm.sh && npm'
 fi
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$JAVA_HOME/jre/bin:$PATH
+#export JAVA_HOME=$(/usr/libexec/java_home)
+#export PATH=$JAVA_HOME/jre/bin:$PATH
 
 export PATH=/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/opt/sqlite/bin:$PATH
+
+export PATH=$HOME/.jenv/bin:$PATH
+eval "$(jenv init -)"
+source "$HOME/.cargo/env"
+
