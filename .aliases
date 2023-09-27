@@ -6,7 +6,7 @@ alias ts="node -e 'console.log(Date.now())'"
 
 alias g='git'
 
-alias kctl="kubectl"
+alias k="kubectl"
 alias kns="kubens"
 
 function cl() {
@@ -17,4 +17,8 @@ function cl() {
     fi;
     builtin cd "${DIR}" && \
     ll
+}
+
+function kbash() {
+    kubectl exec -it $@ -- /bin/bash
 }
