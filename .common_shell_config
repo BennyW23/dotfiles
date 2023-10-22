@@ -12,3 +12,6 @@ fi
 
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/opt/sqlite/bin:$PATH
+
+export GOROOT=/usr/local/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH

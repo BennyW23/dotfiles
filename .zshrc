@@ -1,6 +1,6 @@
 # execute common shell config actions
-if [ -e $HOME/.common_shell_config.sh ]; then
-    source $HOME/.common_shell_config.sh
+if [ -e $HOME/.common_shell_config ]; then
+    source $HOME/.common_shell_config
 fi
 
 # Don't update on every brew download
