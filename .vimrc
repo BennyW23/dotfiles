@@ -26,7 +26,6 @@ set shortmess+=I
 
 " Show line numbers and show the relative line numbers.
 set number
-set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
@@ -77,9 +76,6 @@ set mouse+=a
 " turn on filetype specific configurations
 filetype plugin on
 
-" vim javascript settings
-let g:vim_jsx_pretty_colorful_config = 1 " default 0
-
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -111,5 +107,3 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 autocmd FileType php,python,html,javascript autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-
-autocmd FileType javascript ALEToggle

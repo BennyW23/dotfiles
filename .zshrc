@@ -90,6 +90,8 @@ source $ZSH/oh-my-zsh.sh
 # for history-substring
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
+HISTORY_SUBSTRING_SEARCH_FUZZY=true
 
 # User configuration
 

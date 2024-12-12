@@ -19,6 +19,7 @@ function cl() {
     ll
 }
 
-function kbash() {
-    kubectl exec -it $@ -- /bin/bash
+function kshell() {
+    POD=$(k get pods | grep $@ | cut -d ' ' -f 1 | head -n 1)
+    kubectl exec -it $POD -- /bin/bash
 }
