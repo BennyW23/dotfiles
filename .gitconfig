@@ -7,8 +7,11 @@
     autocrlf = input
 [alias]
     co = checkout
+    com = commit -m
     d = diff
     ec = config --global -e
     s = status
+    main = "!f() { git checkout `git remote show origin | sed -n '/HEAD branch/s/.*: //p'`;}; f"
+    reset-origin = reset --hard @{u}
     undo = reset HEAD~1 --mixed
     tree = log --oneline --decorate --all --graph
